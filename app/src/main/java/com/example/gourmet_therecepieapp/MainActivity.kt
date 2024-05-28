@@ -9,7 +9,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.BlendMode.Companion.Screen
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.rememberNavController
 import com.example.gourmet_therecepieapp.ui.theme.GourmetTheRecepieAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,10 +21,13 @@ class MainActivity : ComponentActivity() {
         setContent {
             GourmetTheRecepieAppTheme {
                 Surface(
-                    modifier = Modifier.fillMaxSize().padding(0.dp),
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(0.dp),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    RecipeScreen()
+                    val navController = rememberNavController()
+                    RecipeApp(navController = navController)
                 }
             }
         }
