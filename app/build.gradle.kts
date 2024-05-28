@@ -50,7 +50,7 @@ android {
 }
 
 dependencies {
-    //compose ViewMdoel
+    //compose ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0")
 
     //Network Call
@@ -60,7 +60,7 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
     // Image Loading
-    implementation("io.coil-kt:coil-compose:2.4.0")
+    implementation("io.coil-kt:coil-compose:2.6.0")
 
 
 

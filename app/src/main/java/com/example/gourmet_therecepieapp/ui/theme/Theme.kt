@@ -45,7 +45,7 @@ fun GourmetTheRecepieAppTheme(
             val context = LocalContext.current
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
-
+    // Changed for the purpose of app
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }

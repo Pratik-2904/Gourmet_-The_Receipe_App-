@@ -6,11 +6,11 @@ import retrofit2.http.GET
 
 //builds connection to url and convert the incoming data  to data class compatible data
 //builder used to
-private val retrofit = Retrofit.Builder().baseUrl("https://www.themealdb.com/api/json/v1/1")
+private val retrofit = Retrofit.Builder().baseUrl("https://www.themealdb.com/api/json/v1/1/")
     .addConverterFactory(GsonConverterFactory.create())
     .build()
 
-    val receipeService = retrofit.create(ApiService::class.java)
+    val recipeService = retrofit.create(ApiService::class.java)
 
 
 interface ApiService{
