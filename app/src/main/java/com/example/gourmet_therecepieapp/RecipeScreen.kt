@@ -21,19 +21,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.rememberAsyncImagePainter
 
 @Composable
 fun RecipeScreen(
     modifier: Modifier = Modifier,
-    viewstate:MainViewModel.RecipeState,
+    viewstate: MainViewModel.RecipeState,
     navigateToDetail: (Category) -> Unit
 ) {
     val recipeViewModel: MainViewModel = viewModel()
@@ -54,12 +51,19 @@ fun RecipeScreen(
                 }
 
                 viewState.error != null -> {
-                    Text(text = "Error Occurred")
+                    Text(
+                        text = "Error Occurred",
+                        color = MaterialTheme.colorScheme.error,
+                        modifier = Modifier.align(
+                            Alignment.Center
+                        )
+                    )
+
                 }
 
                 else -> {
                     //Display Message
-                    CategoryScreen(categories = viewState.list,navigateToDetail)
+                    CategoryScreen(categories = viewState.list, navigateToDetail)
                 }
             }
         }
@@ -75,7 +79,8 @@ fun CategoryScreen(
         GridCells.Fixed(2),
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White)
+            .padding(top = 16.dp)
+            .background(MaterialTheme.colorScheme.background)
     ) {
         items(categories) { category ->
             CategoryItem(category = category, navigateToDetail)
@@ -91,10 +96,14 @@ fun CategoryItem(
     //Items with rounded corner shape
     Column(
         modifier = Modifier
-            .padding(8.dp)
+            .padding( 4.dp)
             .fillMaxSize()
-            .border(0.5.dp, Color.Black, shape = MaterialTheme.shapes.medium)
+            .border(1.dp,MaterialTheme.colorScheme.onSurface, shape = MaterialTheme.shapes.medium)
             .wrapContentSize()
+            .background(
+                MaterialTheme.colorScheme.background,
+                shape = MaterialTheme.shapes.medium
+            )
             .clickable {
                 navigateToDetail(category)
             },
@@ -106,10 +115,11 @@ fun CategoryItem(
             modifier = Modifier
                 .fillMaxSize()
                 .aspectRatio(1f)
+                .background(MaterialTheme.colorScheme.background)
         )
         Text(
             text = category.strCategory,
-            color = Color.Black,
+            color = MaterialTheme.colorScheme.onBackground,
             style = TextStyle(fontWeight = FontWeight.Bold),
             modifier = Modifier.padding(top = 4.dp, bottom = 4.dp)
         )

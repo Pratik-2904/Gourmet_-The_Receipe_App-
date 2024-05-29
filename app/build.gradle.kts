@@ -62,6 +62,7 @@ dependencies {
 
     // Image Loading
     implementation("io.coil-kt:coil-compose:2.6.0")
+    implementation(libs.androidx.navigation.runtime.ktx)
 
     val nav_version = "2.7.7"
     implementation("androidx.navigation:navigation-compose:$nav_version")
