@@ -2,6 +2,7 @@ package com.example.gourmet_therecepieapp
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 import retrofit2.http.GET
 
 //builds connection to url and convert the incoming data  to data class compatible data
